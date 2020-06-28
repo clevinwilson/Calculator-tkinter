@@ -60,41 +60,62 @@ dot.grid(row=6, column=2)
 equal = Button(windows, text=' = ', fg='white', bg='gray', command=lambda: equal(),  height=3, width=7)
 equal.grid(row=6, column=3)
 
-olv=0
 status=0
+new_value=0
 def press(num):
     global expression
     expression=expression+str(num)
     equation.set(expression)
+
+
 def clear():
     global expression
     expression=" "
     equation.set(expression)
-def equal():
-    print("hai")
+
 def Operator(Operator):
+    global expression
+    global olv
+    global status
     if Operator == "plus":
         status = 1
         olv=expression
-        equation.set(" ")
+        expression = " "
+        equation.set("+")
     elif Operator == "divide":
           status = 2
           olv=expression
-          equation.set(" ")
+          expression = " "
+          equation.set("/")
     elif Operator == "minus":
           status = 3
           olv=expression
-          equation.set(" ")
+          expression = " "
+          equation.set("-")
     else:
          status = 4
          olv = expression
-         equation.set(" ")
+         expression = " "
+         equation.set("*")
 
 
-
-
-
-
+def equal():
+    if status == 1:
+        new_value = expression
+        result= int(new_value) + int(olv)
+        equation.set(result)
+    elif status == 2:
+        new_value = expression
+        result = int(olv) / int(new_value)
+        equation.set(result)
+    elif status == 3:
+        new_value = expression
+        result = int(olv) - int(new_value)
+        equation.set(result)
+    else:
+        new_value = expression
+        result = int(new_value) * int(olv)
+        equation.set(result)
 
 
 windows.mainloop()
