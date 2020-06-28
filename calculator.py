@@ -80,15 +80,15 @@ def Operator(Operator):
     elif Operator == "divide":
           status = 2
           olv=expression
-          print("/")
+          equation.set(" ")
     elif Operator == "minus":
           status = 3
           olv=expression
-          print("-")
+          equation.set(" ")
     else:
          status = 4
          olv = expression
-         print("*")
+         equation.set(" ")
 
 
 
