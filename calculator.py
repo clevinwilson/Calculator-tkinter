@@ -2,14 +2,14 @@
 from tkinter import *
 windows =Tk()
 windows.geometry("350x530")
-windows.config()
+windows.config(bg="gray25")
 
 equation = StringVar()
 expression = ""
 screen = Entry(windows,width="35", textvariable=equation)#,font=('Helvetica',24)
 screen.grid(columnspan=4, ipadx=70,pady=10)
 
-clear_button = Button(windows, text=' Clr ', fg='white', bg='gray', command=lambda: clear(), height=3, width=7)
+clear_button = Button(windows, text=' Clr ', fg='red', bg='gray', command=lambda: clear(), height=3, width=7)
 clear_button.grid(row=2, column=0, pady=10)
 
 button1 = Button(windows, text=' 1 ', fg='white', bg='gray', command=lambda: press(1), height=3, width=7)
